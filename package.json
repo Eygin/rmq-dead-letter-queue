@@ -1,0 +1,19 @@
+{
+  "name": "rabbit-mq-dlq",
+  "version": "1.0.0",
+  "description": "Poll a RabbitMQ dead-letter queue without removing messages, archiving each one into SQLite.",
+  "type": "module",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "seed": "node scripts/seed-dlq.js",
+    "pm2:start": "pm2 start ecosystem.config.cjs",
+    "pm2:stop": "pm2 stop dlq-watcher",
+    "pm2:restart": "pm2 restart dlq-watcher",
+    "pm2:logs": "pm2 logs dlq-watcher"
+  },
+  "dependencies": {
+    "amqplib": "^0.10.4",
+    "dotenv": "^16.4.5"
+  }
+}
